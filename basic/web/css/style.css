@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #F4F4F4;
+}
+
+.container {
+  width: 1320px;
+  margin: 0 auto;
+}
+
+header {
+  background-color: #181818;
+  display: flex;
+  align-items: center;
+}
+
+.logo h1 {
+  padding-top: 5px;
+  color: white;
+  font-weight: 400;
+  font-size: 32px;
+  font-family: "Inter", sans-serif;
+}
+
+.container {
+  width: 1320px;
+  margin: 0 auto;
+}
+
+.nav-menu {
+  width: 1800px;
+  margin: 0 auto;
+}
+
+.menu {
+  padding-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  align-items: center;
+}
+
+.menu-l {
+  padding-top: 5px;
+  display: flex;
+  color: white;
+}
+.menu-l li {
+  color: white;
+  margin-left: 25px;
+  font-weight: 500;
+  font-size: 15px;
+  font-family: "PP Pangram Sans", sans-serif;
+}
+
+.knop {
+  border-radius: 8px;
+  padding: 13px 5px;
+  color: white;
+  background-color: transparent;
+  border-color: white;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: "PP Pangram Sans", sans-serif;
+}
+
+.tel {
+  padding-top: 5px;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  font-family: "Unbounded", sans-serif;
+}
+
+.prof img {
+  padding-top: 5px;
+  margin-left: 10px;
+}
+
+.soc {
+  padding-top: 5px;
+  display: flex;
+}
+.soc img {
+  height: 32px;
+  margin-left: 15px;
+}
+
+.button-head {
+  border-radius: 20px;
+  width: 100px;
+}
+
+.promo {
+  color: black;
+  background-size: cover;
+  background-image: url("/../web/img/futuristic-technology-background-electronic-motherboard-communication-and-engineering-concept-vector.jpg");
+  width: 1860px;
+  margin-left: 20px;
+}
+.promo hr {
+  width: 80%;
+  margin-left: 10%;
+  color: #FFFFFF;
+  margin-top: 100px;
+}
+.promo .sect1-text {
+  display: block;
+  text-align: center;
+  justify-content: center;
+  padding-top: 90px;
+  padding-bottom: 60px;
+}
+.promo .sect1-text h1 {
+  font-size: 89px;
+  font-family: "Unbounded";
+}
+.promo .sect1-text p {
+  padding-top: 30px;
+  font-size: 24px;
+  font-family: "PP Pangram Sans";
+}
+.promo .spis1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+  position: relative;
+  z-index: 2;
+}
+.promo .spis1 li {
+  padding-left: 70px;
+  display: flex;
+}
+.promo .spis1 li h3 {
+  display: flex;
+  color: black;
+  background-color: white;
+  width: 26px;
+  height: 26px;
+  border-radius: 100px;
+  font-size: 16px;
+  justify-content: center;
+  align-items: center;
+}
+.promo .spis1 li p {
+  padding-left: 20px;
+  font-size: 17px;
+  font-family: "PP Pangram Sans";
+  font-weight: 300;
+}
+
+/*# sourceMappingURL=style.css.map */
