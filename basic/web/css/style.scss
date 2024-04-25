@@ -104,19 +104,12 @@ header{
     width: 100px;
 }
 .promo{
-    color: black;
+    color: white;
+    background-image: url("/../web/img/5f1ad27958d12f24895bdb686ef56b65.jpg");
     background-size: cover;
-    background-image: url("/../web/img/futuristic-technology-background-electronic-motherboard-communication-and-engineering-concept-vector.jpg");
-    width: 1860px;
-    margin-left: 20px;
+    height: 766px;
 
-    hr{
-        width: 80%;
-        margin-left: 10%;
-        color: #FFFFFF;
-        margin-top: 100px;
 
-    }
     .sect1-text{
         display: block;
         text-align: center;
@@ -124,14 +117,13 @@ header{
         padding-top: 90px;
         padding-bottom: 60px;
         h1{
-
             font-size: 89px;
             font-family: 'Unbounded'
         }
 
         p{
-            padding-top: 30px;
-            font-size: 24px;
+            padding-top: 50px;
+            font-size: 40px;
             font-family: 'PP Pangram Sans';
 
         }
@@ -140,28 +132,14 @@ header{
     .spis1{
         display: flex;
         align-items: center;
-        justify-content: center;
-        padding-top: 100px;
-        position: relative;
-        z-index: 2;
+        justify-content: space-evenly;
+        padding-top: 80px;
         li{
-            padding-left: 70px;
+            padding-left: 30px;
             display: flex;
-            h3{
-                display: flex;
-                color: black;
-                background-color: white;
-                width: 26px;
-                height: 26px;
-                border-radius: 100px;
-                font-size: 16px;
-                justify-content: center;
-                align-items: center;
-            }
-
             p{
                 padding-left: 20px;
-                font-size: 17px;
+                font-size: 23px;
                 font-family: 'PP Pangram Sans';
                 font-weight: 300;
             }

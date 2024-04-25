@@ -5,6 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/basic" isTestSource="false" packagePrefix="app" />
       <sourceFolder url="file://$MODULE_DIR$/basic/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/basic/vendor/behat/gherkin" />
       <excludeFolder url="file://$MODULE_DIR$/basic/vendor/bower-asset/bootstrap" />
       <excludeFolder url="file://$MODULE_DIR$/basic/vendor/bower-asset/inputmask" />
@@ -64,6 +65,14 @@
       <excludeFolder url="file://$MODULE_DIR$/basic/vendor/sebastian/resource-operations" />
       <excludeFolder url="file://$MODULE_DIR$/basic/vendor/sebastian/type" />
       <excludeFolder url="file://$MODULE_DIR$/basic/vendor/sebastian/version" />
+      <excludeFolder url="file://$MODULE_DIR$/basic/vendor/theseer/tokenizer" />
+      <excludeFolder url="file://$MODULE_DIR$/basic/vendor/yiisoft/yii2" />
+      <excludeFolder url="file://$MODULE_DIR$/basic/vendor/yiisoft/yii2-bootstrap5" />
+      <excludeFolder url="file://$MODULE_DIR$/basic/vendor/yiisoft/yii2-composer" />
+      <excludeFolder url="file://$MODULE_DIR$/basic/vendor/yiisoft/yii2-debug" />
+      <excludeFolder url="file://$MODULE_DIR$/basic/vendor/yiisoft/yii2-faker" />
+      <excludeFolder url="file://$MODULE_DIR$/basic/vendor/yiisoft/yii2-gii" />
+      <excludeFolder url="file://$MODULE_DIR$/basic/vendor/yiisoft/yii2-symfonymailer" />
       <excludeFolder url="file://$MODULE_DIR$/basic/vendor/symfony/browser-kit" />
       <excludeFolder url="file://$MODULE_DIR$/basic/vendor/symfony/console" />
       <excludeFolder url="file://$MODULE_DIR$/basic/vendor/symfony/css-selector" />
@@ -84,14 +93,6 @@
       <excludeFolder url="file://$MODULE_DIR$/basic/vendor/symfony/string" />
       <excludeFolder url="file://$MODULE_DIR$/basic/vendor/symfony/var-dumper" />
       <excludeFolder url="file://$MODULE_DIR$/basic/vendor/symfony/yaml" />
-      <excludeFolder url="file://$MODULE_DIR$/basic/vendor/theseer/tokenizer" />
-      <excludeFolder url="file://$MODULE_DIR$/basic/vendor/yiisoft/yii2" />
-      <excludeFolder url="file://$MODULE_DIR$/basic/vendor/yiisoft/yii2-bootstrap5" />
-      <excludeFolder url="file://$MODULE_DIR$/basic/vendor/yiisoft/yii2-composer" />
-      <excludeFolder url="file://$MODULE_DIR$/basic/vendor/yiisoft/yii2-debug" />
-      <excludeFolder url="file://$MODULE_DIR$/basic/vendor/yiisoft/yii2-faker" />
-      <excludeFolder url="file://$MODULE_DIR$/basic/vendor/yiisoft/yii2-gii" />
-      <excludeFolder url="file://$MODULE_DIR$/basic/vendor/yiisoft/yii2-symfonymailer" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

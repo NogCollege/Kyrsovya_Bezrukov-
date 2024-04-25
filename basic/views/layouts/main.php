@@ -85,49 +85,33 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         </ul>
     </div>
 </header>
-<!--<main id="main" class="flex-shrink-0" role="main">-->
-<!--    <div class="container">-->
-<!--        --><?php //if (!empty($this->params['breadcrumbs'])): ?>
-<!--            --><?php //= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) ?>
-<!--        --><?php //endif ?>
-<!--        --><?php //= Alert::widget() ?>
-<!--        --><?php //= $content ?>
-<!--    </div>-->
-<!--</main>-->
+<main id="main" class="flex-shrink-0" role="main">
+    <div class="container">
+        <?php if (!empty($this->params['breadcrumbs'])): ?>
+            <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) ?>
+        <?php endif ?>
+        <?= Alert::widget() ?>
+        <?= $content ?>
+    </div>
+</main>
 
 
 
 <section class="promo ">
     <div class="sect1-text container">
         <h1>Техно Антошка</h1>
-        <p>Лучшая техника и электроника только у Антошки</p>
+        <p class="zag-text">Лучшая техника и электроника только у Антошки</p>
     </div>
-    <hr size="1px">
     <div class="spip">
         <ul class="spis1 container">
             <li>
-                <div class="k"><h3>1</h3></div>
-                <div><p>Большой парк <br>
-                        автомобилей в наличии</p></div>
+                <div><p>Огромный выбор техники и<br> оборудывания   у Антошки</p></div>
             </li>
             <li>
-                <div><h3>2</h3></div>
-                <div><p>Доставка авто <br>
-                        до вашей геолокации</p></div>
+                <div><p>Самая низкая цена<br> на рынке у Антошки</p></div>
             </li>
             <li>
-                <div><h3>3</h3></div>
-                <div><p>Скидки постоянным <br>
-                        клиентам</p></div>
-            </li>
-            <li>
-                <div><h3>4</h3></div>
-                <div><p>Любая форма <br>
-                        оплаты</p></div>
-            </li>
-            <li>
-                <div><h3>5</h3></div>
-                <div><p>Выгодные цены</p></div>
+                <div><p>Скидки и акции каждую<br> неделю у Антошки </p></div>
             </li>
         </ul>
     </div>
