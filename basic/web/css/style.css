@@ -1,10 +1,19 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
 body {
-  background-color: #F4F4F4;
+  background-color: #eaeaea;
 }
 
 .container {
@@ -105,12 +114,12 @@ header {
   display: block;
   text-align: center;
   justify-content: center;
-  padding-top: 90px;
+  padding-top: 50px;
   padding-bottom: 60px;
 }
 .promo .sect1-text h1 {
   font-size: 89px;
-  font-family: "Unbounded";
+  font-family: "PP Pangram Sans";
 }
 .promo .sect1-text p {
   padding-top: 50px;
@@ -132,6 +141,313 @@ header {
   font-size: 23px;
   font-family: "PP Pangram Sans";
   font-weight: 300;
+}
+
+.fleet {
+  margin-top: 80px;
+}
+.fleet .sect2-he {
+  display: flex;
+  flex-direction: row;
+}
+.fleet .sect2-he h1 {
+  color: #1F1F1F;
+  font-family: "Unbounded";
+  font-size: 48px;
+  margin-left: 20px;
+}
+.fleet .sect2-he button {
+  margin-left: 30px;
+  margin-top: 15px;
+  height: 44px;
+  width: 124px;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  border: solid 2px #1F1F1F;
+}
+.fleet .car {
+  display: flex;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  flex-direction: row;
+  font-family: "PP Pangram Sans";
+  margin-left: 20px;
+  list-style-type: none;
+}
+.fleet .car img {
+  margin-right: 15px;
+}
+.fleet .car .white {
+  display: flex;
+  background-color: #FFFFFF;
+  width: 217px;
+  height: 74px;
+  color: #1F1F1F;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  margin-left: 30px;
+}
+.fleet .car .butact {
+  background: #1f1f1f;
+  color: #fff;
+  border: 1px solid #000;
+}
+.fleet .car .butact img {
+  filter: invert(100%);
+}
+.fleet .car .butact:hover {
+  background: #565656;
+}
+
+.stock {
+  margin-top: 70px;
+  background-image: url("/../web/img/—Pngtree—abstract techno banner with a_1260685.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 130px;
+  border-radius: 20px;
+}
+.stock .stok_main {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 50px;
+}
+.stock .stok_main .stok_text {
+  font-family: "PP Pangram Sans";
+  color: white;
+}
+.stock .stok_main .stok_text h2 {
+  width: 600px;
+  font-size: 38px;
+}
+.stock .stok_main .stok_text h2 span {
+  color: #7c00ff;
+}
+.stock .stok_main .stok_text p {
+  padding-top: 20px;
+  width: 550px;
+  font-size: 24px;
+}
+.stock .stok_main .stok_img {
+  font-family: "PP Pangram Sans";
+  background-color: white;
+  width: 600px;
+  height: 700px;
+  border-radius: 20px;
+}
+.stock .stok_main .stok_img p {
+  text-align: right;
+  font-size: 24px;
+}
+.stock .stok_main .stok_img .img_tex {
+  display: flex;
+  justify-content: space-between;
+}
+.stock .stok_main .stok_img .img_tex .opis {
+  text-align: left;
+  font-size: 18px;
+  width: 300px;
+  padding-left: 10px;
+}
+.stock .stok_main .stok_img .img_tex .cen {
+  text-decoration: line-through;
+}
+.stock .stok_main .stok_img img {
+  border-radius: 20px;
+  width: 600px;
+  height: 520px;
+}
+
+.sect4 {
+  margin-top: 80px;
+}
+.sect4 h1 {
+  font-family: "PP Pangram Sans";
+  font-size: 38px;
+}
+.sect4 .sect4_main {
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+.sect4 .sect4_main div {
+  background-color: white;
+  width: 600px;
+  height: 450px;
+  border-radius: 20px;
+}
+.sect4 .sect4_main div h3 {
+  padding-top: 15px;
+  font-size: 28px;
+  padding-left: 10px;
+}
+.sect4 .sect4_main div p {
+  font-size: 20px;
+  padding-left: 10px;
+}
+.sect4 .sect4_main div img {
+  border-radius: 20px;
+  width: 600px;
+  height: 300px;
+}
+
+.sect5 {
+  margin-top: 80px;
+}
+.sect5 h1 {
+  font-family: "PP Pangram Sans";
+  font-size: 38px;
+}
+.sect5 .resons {
+  margin-top: 60px;
+  font-family: "PP Pangram Sans";
+}
+.sect5 .resons ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 40px;
+  grid-row-gap: 40px;
+}
+.sect5 .resons li {
+  display: flex;
+  flex-direction: row;
+}
+.sect5 .resons li img {
+  margin-top: 20px;
+  width: 54px;
+  height: 52px;
+}
+.sect5 .resons li .s5_text {
+  padding-left: 20px;
+}
+.sect5 .resons li .s5_text p {
+  font-size: 18px;
+  width: 300px;
+}
+
+.questions {
+  padding-top: 90px;
+}
+.questions .s6 {
+  display: flex;
+  justify-content: space-between;
+}
+.questions .s6 h1 {
+  padding-top: 15px;
+  font-family: "Unbounded";
+  font-size: 48px;
+  color: #1F1F1F;
+}
+.questions .s6 p {
+  padding-top: 50px;
+  font-family: "PP Pangram Sans";
+  font-size: 18px;
+  color: #9F9F9F;
+  width: 499px;
+}
+.questions .s6 b {
+  padding-top: 40px;
+  font-family: "Unbounded";
+  font-size: 20px;
+  color: #1F1F1F;
+  padding-bottom: 60px;
+}
+.questions .s6 .fo {
+  margin-top: 20px;
+  background-color: #FFFFFF;
+  width: 448px;
+  height: 76px;
+  border-radius: 10px;
+  border: solid 0px;
+  padding-left: 20px;
+}
+.questions .s6 button {
+  margin-top: 20px;
+  width: 468px;
+  height: 76px;
+  background-color: #1F1F1F;
+  border-radius: 10px;
+  color: #FFFFFF;
+  font-family: "PP Pangram Sans";
+}
+.questions .s6 .galo {
+  padding-top: 0px;
+  font-size: 14px;
+  width: 321px;
+  padding-left: 10px;
+}
+.questions .s6 .galo span {
+  color: #131313;
+}
+.questions .s6 .x {
+  padding-top: 30px;
+  display: flex;
+}
+.questions .s6 .s6-text {
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  padding-bottom: 60px;
+}
+footer a {
+  color: white;
+}
+footer .fot {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-family: "PP Pangram Sans";
+}
+footer .fot .fot_cont {
+  padding-top: 60px;
+}
+footer .fot .fot_cont h1 {
+  font-size: 48px;
+}
+footer .fot .fot_cont a {
+  font-size: 20px;
+}
+footer .fot .fot_cont button {
+  width: 180px;
+  height: 55px;
+  background-color: white;
+  border-radius: 20px;
+  border: solid #7c00ff 4px;
+}
+footer .fot .fot_ul {
+  padding-top: 60px;
+}
+footer .fot .fot_ul ul {
+  display: flex;
+  flex-direction: row;
+}
+footer .fot .fot_ul ul li {
+  display: flex;
+  flex-direction: column;
+  padding-left: 40px;
+}
+footer .fot .fot_ul ul li a {
+  padding-top: 20px;
+}
+footer .hr {
+  margin-top: 20px;
+}
+footer .adress {
+  display: flex;
+  justify-content: space-between;
+  font-family: "PP Pangram Sans";
+  color: white;
+  padding-top: 20px;
+}
+footer .adress img {
+  height: 32px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,10 +1,18 @@
 *{
     margin: 0;
     padding: 0;
-    
+
+}
+
+a{
+    text-decoration: none;
+}
+
+li{
+    list-style-type: none;
 }
 body{
-    background-color: #F4F4F4;
+    background-color: #eaeaea;
 }
 
 .container{
@@ -114,11 +122,11 @@ header{
         display: block;
         text-align: center;
         justify-content: center;
-        padding-top: 90px;
+        padding-top: 50px;
         padding-bottom: 60px;
         h1{
             font-size: 89px;
-            font-family: 'Unbounded'
+            font-family: 'PP Pangram Sans'
         }
 
         p{
@@ -143,6 +151,342 @@ header{
                 font-family: 'PP Pangram Sans';
                 font-weight: 300;
             }
+        }
+    }
+}
+.fleet {
+    margin-top: 80px;
+
+    .sect2-he {
+        display: flex;
+        flex-direction: row;
+
+        h1 {
+            color: #1F1F1F;
+            font-family: 'Unbounded';
+            font-size: 48px;
+            margin-left: 20px;
+        }
+
+        button {
+            margin-left: 30px;
+            margin-top: 15px;
+            height: 44px;
+            width: 124px;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            border: solid 2px #1F1F1F;
+        }
+    }
+    .car{
+        display: flex;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        flex-direction: row;
+        font-family: 'PP Pangram Sans';
+        margin-left: 20px;
+        list-style-type: none;
+
+
+
+        img{
+            margin-right: 15px;
+        }
+
+
+
+        .white{
+            display: flex;
+            background-color: #FFFFFF;
+            width: 217px;
+            height: 74px;
+            color: #1F1F1F;
+            border-radius: 10px;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            margin-left: 30px;
+        }
+
+        .butact{
+            background: #1f1f1f;
+            color: #fff;
+            border: 1px solid #000;
+            img {
+                filter: invert(100%);
+            }
+            &:hover {
+                background: #565656;
+            }
+        }
+    }
+}
+.stock{
+    margin-top: 70px;
+    background-image: url("/../web/img/—Pngtree—abstract techno banner with a_1260685.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 130px;
+    border-radius: 20px;
+    .stok_main{
+        display: flex;
+        justify-content: space-between;
+        padding-top: 50px;
+        .stok_text{
+            font-family: 'PP Pangram Sans';
+            color: white;
+            h2{
+                width: 600px;
+                font-size: 38px;
+                span{
+                    color: #7c00ff;
+                }
+            }
+            p{
+                padding-top: 20px;
+                width: 550px;
+                font-size: 24px;
+            }
+        }
+
+        .stok_img{
+            font-family: "PP Pangram Sans";
+            background-color: white;
+            width: 600px;
+            height: 700px;
+            border-radius: 20px;
+            p{
+                text-align: right;
+                font-size: 24px;
+            }
+
+            h3{}
+
+            .img_tex{
+                display: flex;
+                justify-content: space-between;
+                .opis{
+                    text-align: left;
+                    font-size: 18px;
+                    width: 300px;
+                    padding-left: 10px;
+                }
+                .cen{
+
+                    text-decoration: line-through;
+                }
+            }
+            img{
+                border-radius: 20px;
+                width: 600px;
+                height: 520px;
+
+            }
+        }
+    }
+}
+
+.sect4{
+    margin-top: 80px;
+    h1{
+        font-family: "PP Pangram Sans";
+        font-size: 38px;
+    }
+
+    .sect4_main{
+        padding-top: 50px;
+        display: flex;
+        justify-content: space-between;
+        div{
+            background-color: white;
+            width: 600px;
+            height: 450px;
+            border-radius: 20px;
+            h3{
+                padding-top: 15px;
+                font-size: 28px;
+                padding-left: 10px;
+            }
+
+            p{
+                font-size: 20px;
+                padding-left: 10px;
+            }
+
+            img{
+                border-radius: 20px;
+                width: 600px;
+                height: 300px;
+            }
+        }
+    }
+}
+
+.sect5{
+    margin-top: 80px;
+    h1{
+        font-family: "PP Pangram Sans";
+        font-size: 38px;
+    }
+
+    .resons{
+        margin-top: 60px;
+        font-family: "PP Pangram Sans";
+        ul{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-column-gap: 40px;
+            grid-row-gap: 40px;
+        }
+
+        li{
+            display: flex;
+            flex-direction: row;
+            img{
+                margin-top: 20px;
+                width: 54px;
+                height: 52px;
+            }
+            .s5_text{
+                padding-left: 20px;
+                p{
+                    font-size: 18px;
+                    width: 300px;
+                }
+            }
+        }
+    }
+}
+.questions{
+    padding-top: 90px;
+
+    .s6{
+        display: flex;
+        justify-content: space-between;
+        h1{
+            padding-top: 15px;
+            font-family: 'Unbounded';
+            font-size: 48px;
+            color: #1F1F1F;
+        }
+
+        p{
+            padding-top: 50px;
+            font-family: 'PP Pangram Sans';
+            font-size: 18px;
+            color: #9F9F9F;
+            width: 499px;
+        }
+
+        b{
+            padding-top: 40px;
+            font-family: 'Unbounded';
+            font-size: 20px;
+            color: #1F1F1F;
+            padding-bottom: 60px;
+        }
+
+        .fo{
+            margin-top:  20px;
+            background-color: #FFFFFF;
+            width: 448px;
+            height: 76px;
+            border-radius: 10px;
+            border: solid 0px;
+            padding-left: 20px;
+        }
+
+        button{
+            margin-top: 20px;
+            width: 468px;
+            height: 76px;
+            background-color: #1F1F1F;
+            border-radius: 10px;
+            color: #FFFFFF;
+            font-family: 'PP Pangram Sans';
+        }
+
+        .galo{
+            padding-top: 0px;
+            font-size: 14px;
+            width: 321px;
+            padding-left: 10px;
+            span{
+                color: #131313;
+            }
+        }
+
+        .x{
+            padding-top: 30px;
+            display: flex;
+        }
+
+        .s6-text{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+footer{
+    background-color: black;
+    color: white;
+    padding-bottom: 60px;
+    a{
+        color: white;
+    }
+    .fot{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        font-family: "PP Pangram Sans";
+        .fot_cont{
+            padding-top: 60px;
+            h1{
+
+                font-size: 48px;
+            }
+            a{
+                font-size: 20px;
+            }
+
+            button{
+                width: 180px;
+                height: 55px;
+                background-color: white;
+                border-radius: 20px;
+                border: solid #7c00ff 4px;
+            }
+        }
+
+        .fot_ul{
+            padding-top: 60px;
+            ul{
+                display: flex;
+                flex-direction: row;
+                li{
+                    display: flex;
+                    flex-direction: column;
+                    padding-left: 40px;
+                    a{
+                        padding-top: 20px;
+                    }
+                }
+            }
+        }
+    }
+    .hr{
+        margin-top: 20px;
+    }
+    .adress{
+        display: flex;
+        justify-content: space-between;
+        font-family: "PP Pangram Sans";
+        color: white;
+        padding-top: 20px;
+
+        img{
+            height: 32px;
         }
     }
 }

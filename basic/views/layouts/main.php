@@ -117,6 +117,188 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     </div>
 </section>
 
+<section class="fleet" id="tovar">
+    <div class="sect2-he container">
+        <h1>Техника Антошки</h1>
+        <button>Смотреть всё</button>
+    </div>
+    <div class="sect2-car container">
+        <ul class="car container">
+            <li>
+                <button class= "white w5" >Сматфоны</button>
+
+            </li>
+            <li>
+                <button class=" white w1 " >Телевизоры</button>
+
+            </li>
+            <li>
+                <button class=" white w4" > Техника для кухни</button>
+
+            </li>
+            <li>
+                <button class=" white w2" >Техника для дома</button>
+
+            </li>
+            <li>
+                <button class=" white w3" ">Аудиотехника</button>
+
+            </li>
+        </ul>
+    </div>
+</section>
+<section class="stock">
+     <div class="stok_main container">
+         <div class="stok_text">
+             <h2>При выборе у Антошки вы получите <span>выгодные предложения</span></h2>
+             <p>Успейте воспользоваться нашими выгодными акциями и скидками на лучшую технику от ведущих мировых брендов! Покупайте смартфоны, ноутбуки, телевизоры, наушники и многое другое по выгодным ценам. Подарите себе и своим близким надежные технологии отличного качества! Не упустите шанс сэкономить и обновить свои гаджеты прямо сейчас. Следите за новыми акциями и получайте самые выгодные предложения только у нас! </p>
+         </div>
+
+         <div class="stok_img">
+             <img src="/../web/img/unnamed.jpg">
+             <h3>Блендер Polaris PHB 1476</h3>
+             <div class="img_tex">
+                 <p class="opis">3 в 1: измельчитель, блендер, миксер. Технология PROtect+ двойная защита двигателя обеспечивает надежность и долговечность.</p>
+                 <p class="cen">3490 руб.</p>
+                 <p>2792 руб.</p>
+             </div>
+
+         </div>
+     </div>
+
+</section>
+
+<section class="sect4">
+    <h1 class="container">Огромный выбор техники у Антошки</h1>
+    <div class="sect4_main container">
+        <div>
+            <img src="/../web/img/78d51d7e00d69bcbaededa4130088f2d.jpg">
+            <h3>Бытовая техника</h3>
+            <p>Создавайте уют и комфорт в своем доме с помощью нашей высококачественной бытовой техники.</p>
+        </div>
+
+        <div>
+            <img src="/../web/img/cf2100a0f1f84a1735e572cc2f7b7822.jpg">
+            <h3>Цифровая техника</h3>
+            <p>Откройте перед собой мир инновационных технологий с нашим ассортиментом цифровой техники.</p>
+        </div>
+    </div>
+</section>
+<section class="sect5">
+    <h1 class="container">Причины покупать у Антошки</h1>
+    <div class="resons container">
+        <ul>
+            <li>
+                <div>
+                    <img src="/../web/img/free-icon-guarantee-1261077.png">
+                </div>
+                <div class="s5_text">
+                    <h2>Гарантия</h2>
+                    <p>При покупке вы всегда получите гарантию на товар </p>
+                </div>
+            </li>
+
+            <li>
+                <div>
+                    <img src="/../web/img/free-icon-wallet-2169854.png">
+                </div>
+                <div class="s5_text">
+                    <h2>Оплата</h2>
+                    <p>Любая и удобная форма оплаты(любые банковские карты)</p>
+                </div>
+            </li>
+
+            <li>
+                <div>
+                    <img src="/../web/img/free-icon-time-5030436.png">
+                </div>
+                <div class="s5_text">
+                    <h2>Скорость</h2>
+                    <p>Оплата проходит быстро не более 3 минут</p>
+                </div>
+            </li>
+
+            <li>
+                <div>
+                    <img src="/../web/img/free-icon-reviews-5185793.png">
+                </div>
+                <div class="s5_text">
+                    <h2>Реальные отзывы</h2>
+                    <p>Все отзывы модерируются и не допускаются к накрутке</p>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</section>
+
+<section class="questions">
+    <div class="s6 container">
+        <div class="s6-ph">
+            <img src="/../web/img/263452345%201.png" alt="">
+        </div>
+
+        <div class="s6-text">
+            <h1>Есть вопросы?</h1>
+            <p>С вами свяжутся в течении 10 минут чтобы ответить на все вопросы</p>
+            <b>8 800 555 35 35 </b>
+
+            <input class="fo" type="text" placeholder="Введите имя">
+            <input class="fo" type="text" placeholder="8 911 402 23 45">
+            <button>Оставить запрос</button>
+            <div class="x">
+                <input class="gal" type="checkbox" name="a" value="1">
+                <p class="galo">Отправляя форму, я соглашаюсь<br>
+                    с <span>политикой обработки персональных данных</span></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="fot container">
+        <div class="fot_cont">
+            <h1>Контакты</h1>
+            <a href="">Адрес магазинов</a>
+            <p>8 800 555 35 35</p>
+            <button>Задать вопросы</button>
+        </div>
+        <div class="fot_ul">
+            <ul class="fot_spisok">
+                <li class="glav">
+                    <a  href="#tovar">Товары</a>
+                    <a href="">Акции</a>
+                    <a href="">Гарантия</a>
+                    <a href="">Информация</a>
+
+                </li>
+                <li>
+                    <a href="">Услуги</a>
+                    <a href="">Обзоры</a>
+                    <a href="">Сервесные центры</a>
+                    <a href="">Подарочные карты</a>
+                </li>
+                <li>
+                    <a href="">Партнёрская программа</a>
+                    <a href="">Политика компании</a>
+                    <a href="">Документы</a>
+                    <a href="">Пресс-центр</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr class="hr container">
+    <div class="adress container">
+        <div>
+            <a href=""><img src="/../web/img/free-icon-whatsapp-4494494.png"></a>
+            <a href=""><img src="/../web/img/free-icon-vkontakte-4494517.png"></a>
+        </div>
+        <div>
+            <p>Московская область, г. Ногинск, Молодежная ул., д. 1</p>
+            <p>© Техно у Антошки, 2024</p>
+        </div>
+    </div>
+</footer>
 
 
 <?php $this->endBody() ?>
