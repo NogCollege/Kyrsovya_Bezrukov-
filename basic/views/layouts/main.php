@@ -146,6 +146,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
             </li>
         </ul>
     </div>
+    
 </section>
 <section class="stock">
      <div class="stok_main container">
