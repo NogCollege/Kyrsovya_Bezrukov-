@@ -146,7 +146,29 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
             </li>
         </ul>
     </div>
-    
+
+    php
+    <div class="katalog container">
+        <ul class="katal">
+            <?php foreach ($texnos as $texno): ?>
+                <li class="vis-biba <?= $texno->categoria ?>">
+                    <div class="img-kat">
+                        <img src="/../web/img/free-icon-calories-4812905.png" alt="">
+                    </div>
+                    <h4><?= $texno->nazvan ?></h4>
+                    <div class="text-s2">
+                        <p><img src="/../web/img/free-icon-calories-4812905.png" alt=""> <?= $texno->cena ?></p>
+                        <p class="pa"><img src="/../web/img/free-icon-weight-4208566.png" alt=""> <?= $texno->garantia ?></p>
+                    </div>
+                    <div class="cen">
+                        <button>Забронировать</button>
+                        <p>от <span><?= $texno->min_opis ?></span> руб.</p>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+
 </section>
 <section class="stock">
      <div class="stok_main container">

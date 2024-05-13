@@ -62,7 +62,11 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $texnos = Texno::find()->all();
+
+        return $this->render('index', [
+            'texno' => $texnos,
+        ]);
     }
 
     /**
@@ -115,12 +119,6 @@ class SiteController extends Controller
         return $this->render('contact', [
             'model' => $model,
         ]);
-    }
-
-    public function actionTexno()
-    {
-        $rows=Texno::find()->all();
-        return $this->render('texno', ['rows'=>$rows]);
     }
 
     /**
