@@ -147,27 +147,35 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         </ul>
     </div>
 
-    php
+    <?php
+    $pdo = new PDO('mysql:host=localhost;dbname=tovarin', 'root', '');
+
+    // Получение данных о товарах из базы
+    $statement = $pdo->query('SELECT * FROM TEXNO');
+    $texnos = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    ?>
+
     <div class="katalog container">
         <ul class="katal">
             <?php foreach ($texnos as $texno): ?>
-                <li class="vis-biba <?= $texno->categoria ?>">
+                <li class="vis-biba">
                     <div class="img-kat">
-                        <img src="/../web/img/free-icon-calories-4812905.png" alt="">
+
                     </div>
-                    <h4><?= $texno->nazvan ?></h4>
+                    <h4><?= $texno['nazvan'] ?></h4>
                     <div class="text-s2">
-                        <p><img src="/../web/img/free-icon-calories-4812905.png" alt=""> <?= $texno->cena ?></p>
-                        <p class="pa"><img src="/../web/img/free-icon-weight-4208566.png" alt=""> <?= $texno->garantia ?></p>
+                        <p class="pa"><img src="" alt=""> Модель: <?= $texno['modeli'] ?></p>
                     </div>
                     <div class="cen">
-                        <button>Забронировать</button>
-                        <p>от <span><?= $texno->min_opis ?></span> руб.</p>
+                        <p>Цена: <?= $texno['cena'] ?></p>
                     </div>
+                    <p><?= $texno['min_opis'] ?></p>
                 </li>
             <?php endforeach; ?>
         </ul>
     </div>
+
 
 </section>
 <section class="stock">
