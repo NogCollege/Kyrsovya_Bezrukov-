@@ -38,8 +38,9 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
             <li><a>Главная</a></li>
             <li><a>Товары</a></li>
             <li><a>Контакты</a></li>
-            <li><?= Html::a('Зарегестрироваться',  ['/site/login']) ?></li>
             <li><?= Html::a('Логин',  ['/site/login']) ?></li>
+            <li><?= Html::a('Выйти', ['/site/logout'], ['data-method' => 'post']) ?></li>
+
     </div>
     <div class="soc">
         <li><a><img src="/../web/img/free-icon-vkontakte-4494517.png" alt=""></a></li>

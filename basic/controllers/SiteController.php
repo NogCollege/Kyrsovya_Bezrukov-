@@ -10,6 +10,8 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Texno;
+use app\models\RegisterForm;
+use app\models\User;
 
 class SiteController extends Controller
 {
@@ -21,45 +23,82 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::class,
-                'only' => ['logout'],
+                'only' => ['logout', 'admin'],
                 'rules' => [
                     [
                         'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::class,
-                'actions' => [
-                    'logout' => ['post'],
+                    [
+                        'actions' => ['admin'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                        'matchCallback' => function($rule, $action) {
+                            return Yii::$app->user->identity->role === User::ROLE_ADMIN;
+                        },
+                    ],
                 ],
             ],
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function actions()
     {
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
             ],
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
         ];
     }
 
-    /**
-     * Displays homepage.
-     *
-     * @return string
+    public function actionRegister()
+    {
+        $model = new RegisterForm();
+        if ($model->load(Yii::$app->request->post()) && $model->register()) {
+            return $this->redirect(['login']);
+        }
+        return $this->render('register', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionLogin()
+    {
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
+        $model = new LoginForm();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            if (Yii::$app->user->identity->role === User::ROLE_ADMIN) {
+                return $this->redirect(['admin']);
+            }
+            return $this->goBack();
+        }
+
+        return $this->render('login', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionLogout()
+    {
+        Yii::$app->user->logout();
+        return $this->goHome();
+    }
+
+    public function actionAdmin()
+    {
+        return $this->render('admin');
+    }
+
+
+
+/**
+     * {@inheritdoc}
      */
+
     public function actionIndex()
     {
         $texnos = Texno::find()->all();
@@ -69,45 +108,7 @@ class SiteController extends Controller
         ]);
     }
 
-    /**
-     * Login action.
-     *
-     * @return Response|string
-     */
-    public function actionLogin()
-    {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
 
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        }
-
-        $model->password = '';
-        return $this->render('login', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Logout action.
-     *
-     * @return Response
-     */
-    public function actionLogout()
-    {
-        Yii::$app->user->logout();
-
-        return $this->goHome();
-    }
-
-    /**
-     * Displays contact page.
-     *
-     * @return Response|string
-     */
     public function actionContact()
     {
         $model = new ContactForm();
