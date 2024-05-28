@@ -72,16 +72,19 @@ $this->title = 'Интернет магазин';
             <?php foreach ($texnos as $texno): ?>
                 <li class="vis-biba">
                     <div class="img-kat">
-                        <img src="<?= $texno['img_url'] ?>">
+                        <img style="border-radius: 20px; height: 350px;" class="fotografia" src="<?= $texno['img_url'] ?> ">
                     </div>
                     <h4><?= $texno['nazvan'] ?></h4>
                     <div class="text-s2">
-                        <p class="pa"><img src="" alt=""> Модель: <?= $texno['modeli'] ?></p>
+                        <p class="pa"><img src="" alt="">Модель: <?= $texno['modeli'] ?></p>
+                    </div>
+                    <div class="op">
+                        <p class="opisan"><?= $texno['min_opis'] ?></p>
                     </div>
                     <div class="cen">
-                        <p>Цена: <?= $texno['cena'] ?></p>
+                        <p class="ce">Цена: <?= $texno['cena'] ?></p>
+                        <button class="dobav">Добавить</button>
                     </div>
-                    <p><?= $texno['min_opis'] ?></p>
                 </li>
             <?php endforeach; ?>
         </ul>

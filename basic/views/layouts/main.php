@@ -27,6 +27,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     <?php $this->head() ?>
 </head>
 <body class="d-flex flex-column h-100">
+<script src="/../web/jquery-3.7.1.min.js"></script>
 <?php $this->beginBody() ?>
 <header class="head">
     <div class="nav-menu">
@@ -117,6 +118,9 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 
 
 <?php $this->endBody() ?>
+<script>
+    console.log($);
+</script>
 </body>
 </html>
 <?php $this->endPage() ?>

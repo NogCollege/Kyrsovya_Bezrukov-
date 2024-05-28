@@ -391,6 +391,37 @@ header {
   flex-direction: column;
 }
 
+.katal {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 30px;
+  grid-row-gap: 20px;
+}
+.katal li {
+  background-color: white;
+  border-radius: 20px;
+}
+.katal li h4 {
+  padding-left: 20px;
+}
+.katal li .cen {
+  display: flex;
+  flex-direction: row;
+}
+.katal li .cen .dobav {
+  margin-left: 120px;
+}
+.katal li .opisan {
+  width: 500px;
+}
+.katal li p {
+  padding-left: 20px;
+}
+.katal li .img-kat {
+  text-align: center;
+}
+
 footer {
   background-color: black;
   color: white;
