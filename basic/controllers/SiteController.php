@@ -13,6 +13,8 @@ use app\models\Texno;
 use app\models\RegisterForm;
 use app\models\User;
 use app\models\Cart;
+use yii\data\ActiveDataProvider;
+use yii\web\NotFoundHttpException;
 class SiteController extends Controller
 {
     /**
@@ -90,7 +92,14 @@ class SiteController extends Controller
 
     public function actionAdmin()
     {
-        return $this->render('admin');
+        $dataProvider = new ActiveDataProvider([
+            'query' => Texno::find(),
+        ]);
+
+        return $this->render('admin', [
+            'dataProvider' => $dataProvider,
+            'action' => 'admin',
+        ]);
     }
 
     public function actionAdd()
@@ -169,10 +178,55 @@ class SiteController extends Controller
         return $this->render('cart', ['cart' => $cart]);
     }
 
+    public function actionCreate()
+    {
+        $model = new Texno();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['index']);
+        }
+
+        return $this->render('admin', [
+            'model' => $model,
+            'action' => 'create',
+        ]);
+    }
+
+    public function actionUpdatee($id)
+    {
+        $model = $this->findModel($id);
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['index']);
+        }
+
+        return $this->render('admin', [
+            'model' => $model,
+            'action' => 'updatee',
+        ]);
+    }
+
+    public function actionDelete($id)
+    {
+        $this->findModel($id)->delete();
+
+        return $this->redirect(['index']);
+    }
+
+    protected function findModel($id)
+    {
+        if (($model = Texno::findOne($id)) !== null) {
+            return $model;
+        }
+
+        throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
 
     /**
      * {@inheritdoc}
      */
+
 
     public function actionIndex()
     {
