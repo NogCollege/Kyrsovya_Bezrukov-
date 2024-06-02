@@ -35,6 +35,11 @@ class User extends ActiveRecord implements IdentityInterface
         ];
     }
 
+    public function hasRole($role)
+    {
+        return $this->role === $role;
+    }
+
     public static function findIdentity($id)
     {
         return static::findOne($id);

@@ -1,7 +1,8 @@
 <?php
 
 /** @var yii\web\View $this */
-
+use yii\helpers\Html;
+use yii\helpers\Url;
 $this->title = 'Интернет магазин';
 ?>
 
@@ -83,7 +84,14 @@ $this->title = 'Интернет магазин';
                     </div>
                     <div class="cen">
                         <p class="ce">Цена: <?= $texno['cena'] ?></p>
-                        <button class="dobav">Добавить</button>
+                        <form method="post" action="<?= Url::to(['site/add-to-cart']) ?>">
+                            <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->csrfToken) ?>
+                            <input type="hidden" name="id" value="<?= $texno['id'] ?>">
+                            <input type="hidden" name="nazvan" value="<?= $texno['nazvan'] ?>">
+                            <input type="hidden" name="cena" value="<?= $texno['cena'] ?>">
+                            <button type="submit">заказать</button>
+                        </form>
+
                     </div>
                 </li>
             <?php endforeach; ?>

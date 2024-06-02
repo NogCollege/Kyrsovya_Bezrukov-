@@ -12,7 +12,7 @@ use app\models\ContactForm;
 use app\models\Texno;
 use app\models\RegisterForm;
 use app\models\User;
-
+use app\models\Cart;
 class SiteController extends Controller
 {
     /**
@@ -93,9 +93,84 @@ class SiteController extends Controller
         return $this->render('admin');
     }
 
+    public function actionAdd()
+    {
+        $id = Yii::$app->request->post('id');
+        $tovar = Texno::findOne($id);
+
+        if ($tovar) {
+            $cart = Yii::$app->session->get('cart', new Cart());
+            $cart->addItem($tovar->attributes);
+            Yii::$app->session->set('cart', $cart);
+        }
+
+        return $this->redirect(['cart/index']);
+    }
+
+    public function actionRemove($id)
+    {
+        $cart = Yii::$app->session->get('cart', new Cart());
+        $cart->removeItem($id);
+        Yii::$app->session->set('cart', $cart);
+
+        return $this->redirect(['cart']);
+    }
+
+    public function actionUpdate()
+    {
+        $id = Yii::$app->request->post('id');
+        $quantity = Yii::$app->request->post('quantity');
+
+        $cart = Yii::$app->session->get('cart', new Cart());
+        $cart->updateItem($id, $quantity);
+        Yii::$app->session->set('cart', $cart);
+
+        return $this->redirect(['cart']);
+    }
+
+    public function actionAddToCart()
+    {
+        $id = Yii::$app->request->post('id');
+        $tovar = Texno::findOne($id);
+
+        if ($tovar) {
+            $cart = Yii::$app->session->get('cart', new Cart());
+            $cart->addItem($tovar->attributes);
+            Yii::$app->session->set('cart', $cart);
+        }
+
+        return $this->redirect(['site/cart']);
+    }
+
+    public function actionRemoveFromCart($id)
+    {
+        $cart = Yii::$app->session->get('cart', new Cart());
+        $cart->removeItem($id);
+        Yii::$app->session->set('cart', $cart);
+
+        return $this->redirect(['site/cart']);
+    }
+
+    public function actionUpdateCart()
+    {
+        $id = Yii::$app->request->post('id');
+        $quantity = Yii::$app->request->post('quantity');
+
+        $cart = Yii::$app->session->get('cart', new Cart());
+        $cart->updateItem($id, $quantity);
+        Yii::$app->session->set('cart', $cart);
+
+        return $this->redirect(['site/cart']);
+    }
+
+    public function actionCart()
+    {
+        $cart = Yii::$app->session->get('cart', new Cart());
+        return $this->render('cart', ['cart' => $cart]);
+    }
 
 
-/**
+    /**
      * {@inheritdoc}
      */
 

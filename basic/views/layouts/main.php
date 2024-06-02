@@ -42,6 +42,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
             <li><?= Html::a('Логин',  ['/site/login']) ?></li>
             <li><?= Html::a('Выйти', ['/site/logout'], ['data-method' => 'post']) ?></li>
 
+
     </div>
     <div class="soc">
         <li><a><img src="/../web/img/free-icon-vkontakte-4494517.png" alt=""></a></li>
@@ -54,7 +55,9 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         <li><button class="button-head">Корзина</button></li>
     </div>
     <div class="prof">
-        <li><a href="admin.php"><img src="templates/img/Group 71.png" alt=""></a></li>
+        <?php if (!Yii::$app->user->isGuest && Yii::$app->user->identity->hasRole('admin')): ?>
+            <li><?= Html::a('Админ', ['/site/admin']) ?></li>
+        <?php endif; ?>
         <li><img src="templates/img/Group 72.png" alt=""></li>
     </div>
     </ul>
