@@ -9,6 +9,7 @@ use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
 use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 
@@ -41,6 +42,9 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
             <li><a>Контакты</a></li>
             <li><?= Html::a('Логин',  ['/site/login']) ?></li>
             <li><?= Html::a('Выйти', ['/site/logout'], ['data-method' => 'post']) ?></li>
+            <?php if (!Yii::$app->user->isGuest): ?>
+                <a href="<?= Url::to(['site/profile']) ?>">Мой профиль</a>
+            <?php endif; ?>
 
 
     </div>

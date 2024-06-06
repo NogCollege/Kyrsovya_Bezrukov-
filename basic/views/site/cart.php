@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\widgets\ActiveForm;
 
 $this->title = 'Корзина';
 ?>
@@ -14,7 +15,6 @@ $this->title = 'Корзина';
     <table>
         <thead>
         <tr>
-            <th>id</th>
             <th>Название</th>
             <th>Цена</th>
             <th>Количество</th>
@@ -48,21 +48,12 @@ $this->title = 'Корзина';
     <p>Общая сумма: <?= Html::encode($cart->getTotal()) ?></p>
 
     <div>
-        <form method="post" action="<?= Url::to(['site/checkout']) ?>">
-            <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->csrfToken) ?>
-            <div>
-                <label for="name">Имя:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div>
-                <label for="phone">Номер телефона:</label>
-                <input type="text" id="phone" name="phone" required>
-            </div>
-            <div>
-                <label for="address">Адрес:</label>
-                <input type="text" id="address" name="address" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Оформить заказ</button>
-        </form>
+        <?php $form = ActiveForm::begin(['action' => Url::to(['site/place-order'])]); ?>
+        <?= $form->field($orderForm, 'name')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($orderForm, 'phone')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($orderForm, 'address')->textInput(['maxlength' => true]) ?>
+        <?= Html::submitButton('Оформить заказ', ['class' => 'btn btn-primary']) ?>
+        <?php ActiveForm::end(); ?>
     </div>
 <?php endif; ?>
+
