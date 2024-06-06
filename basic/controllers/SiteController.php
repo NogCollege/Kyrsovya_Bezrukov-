@@ -15,6 +15,8 @@ use app\models\User;
 use app\models\Cart;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
+use app\models\Order;
+use app\models\OrderItem;
 class SiteController extends Controller
 {
     /**
@@ -174,9 +176,76 @@ class SiteController extends Controller
 
     public function actionCart()
     {
-        $cart = Yii::$app->session->get('cart', new Cart());
+        $cart = Yii::$app->session->get('cart', []);
         return $this->render('cart', ['cart' => $cart]);
     }
+
+
+    public function actionCheckout()
+    {
+        $request = Yii::$app->request;
+
+        if ($request->isPost) {
+            $name = $request->post('name');
+            $phone = $request->post('phone');
+            $address = $request->post('address');
+            $cart = Yii::$app->cart;
+            $userId = Yii::$app->user->id;
+
+            // Save order to database
+            $order = new Order();
+            $order->user_id = $userId;
+            $order->name = $name;
+            $order->phone = $phone;
+            $order->address = $address;
+            $order->total = $cart->getTotal();
+            $order->created_at = date('Y-m-d H:i:s');
+
+            if ($order->save()) {
+                Yii::info("Order saved successfully with ID: {$order->id}");
+
+                foreach ($cart->getItems() as $item) {
+                    Yii::info("Processing cart item: " . print_r($item, true));
+
+                    if (isset($item['id']) && isset($item['nazvan']) && isset($item['cena']) && isset($item['quantity'])) {
+                        $orderItem = new OrderItem();
+                        $orderItem->order_id = $order->id;
+                        $orderItem->product_id = $item['id'];
+                        $orderItem->product_name = $item['nazvan'];
+                        $orderItem->price = $item['cena'];
+                        $orderItem->quantity = $item['quantity'];
+
+                        if ($orderItem->save()) {
+                            Yii::info("Order item saved successfully: " . print_r($orderItem->attributes, true));
+                        } else {
+                            Yii::error("Failed to save order item: " . print_r($orderItem->errors, true));
+                        }
+                    } else {
+                        Yii::error("Invalid cart item structure: " . print_r($item, true));
+                    }
+                }
+
+                // Clear the cart
+                $cart->clear();
+
+                // Redirect to a confirmation page
+                return $this->redirect(['site/order-confirmation']);
+            } else {
+                Yii::$app->session->setFlash('error', 'Произошла ошибка при оформлении заказа.');
+                Yii::error("Failed to save order: " . print_r($order->errors, true));
+            }
+        }
+
+        return $this->redirect(['site/cart']);
+    }
+
+    public function actionOrderConfirmation()
+    {
+        return $this->render('order-confirmation');
+    }
+
+
+
 
     public function actionCreate()
     {

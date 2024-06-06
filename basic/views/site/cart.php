@@ -6,7 +6,6 @@ use yii\helpers\Url;
 $this->title = 'Корзина';
 ?>
 
-
 <h1><?= Html::encode($this->title) ?></h1>
 
 <?php if (empty($cart->getItems())): ?>
@@ -15,6 +14,7 @@ $this->title = 'Корзина';
     <table>
         <thead>
         <tr>
+            <th>id</th>
             <th>Название</th>
             <th>Цена</th>
             <th>Количество</th>
@@ -25,6 +25,7 @@ $this->title = 'Корзина';
         <tbody>
         <?php foreach ($cart->getItems() as $item): ?>
             <tr>
+                <td><?= Html::encode($item['id']) ?></td>
                 <td><?= Html::encode($item['nazvan']) ?></td>
                 <td><?= Html::encode($item['cena']) ?></td>
                 <td>
@@ -47,6 +48,21 @@ $this->title = 'Корзина';
     <p>Общая сумма: <?= Html::encode($cart->getTotal()) ?></p>
 
     <div>
-        <a href="<?= Url::to(['site/checkout']) ?>" class="btn btn-primary">Оформить заказ</a>
+        <form method="post" action="<?= Url::to(['site/checkout']) ?>">
+            <?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->csrfToken) ?>
+            <div>
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="phone">Номер телефона:</label>
+                <input type="text" id="phone" name="phone" required>
+            </div>
+            <div>
+                <label for="address">Адрес:</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Оформить заказ</button>
+        </form>
     </div>
 <?php endif; ?>

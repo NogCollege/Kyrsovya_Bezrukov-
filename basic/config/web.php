@@ -16,6 +16,9 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'qDdfe-VdQ2-5ZXC3ECvGOl6Q0LW1Jdyt',
         ],
+        'cart' => [
+            'class' => 'app\components\Cart',
+        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
