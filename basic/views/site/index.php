@@ -90,6 +90,7 @@ $this->title = 'Интернет магазин';
                             <input type="hidden" name="nazvan" value="<?= $texno['nazvan'] ?>">
                             <input type="hidden" name="cena" value="<?= $texno['cena'] ?>">
                             <button type="submit">заказать</button>
+                            <a href="<?= Url::to(['site/view', 'id' => $texno['id']]) ?>" class="btn btn-info">Подробнее</a>
                         </form>
 
                     </div>

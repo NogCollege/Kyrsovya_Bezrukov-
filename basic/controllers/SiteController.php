@@ -224,6 +224,55 @@ class SiteController extends Controller
         ]);
     }
 
+    public function actionManageOrders()
+    {
+        $dataProvider = new ActiveDataProvider([
+            'query' => Order::find()->orderBy(['created_at' => SORT_DESC]),
+            'pagination' => [
+                'pageSize' => 10,
+            ],
+        ]);
+
+        return $this->render('manage-orders', [
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    public function actionUpdateOrderStatus()
+    {
+        if (Yii::$app->request->isPost) {
+            $orderId = Yii::$app->request->post('orderId');
+            $status = Yii::$app->request->post('status');
+            $order = Order::findOne($orderId);
+
+            if ($order && in_array($status, [
+                    Order::STATUS_PENDING,
+                    Order::STATUS_IN_PROGRESS,
+                    Order::STATUS_REJECTED,
+                    Order::STATUS_COMPLETED,
+                ])) {
+                $order->status = $status;
+                if ($order->save()) {
+                    Yii::$app->session->setFlash('success', 'Статус заказа обновлён.');
+                } else {
+                    Yii::$app->session->setFlash('error', 'Не удалось обновить статус заказа.');
+                }
+            } else {
+                Yii::$app->session->setFlash('error', 'Некорректный заказ или статус.');
+            }
+        }
+
+        return $this->redirect(['site/manage-orders']);
+    }
+
+    // In ProductController.php
+    public function actionView($id)
+    {
+        $texno = Texno::findOne($id); // Assuming your model is Product
+        return $this->render('view', [
+            'texno' => $texno,
+        ]);
+    }
 
 
 

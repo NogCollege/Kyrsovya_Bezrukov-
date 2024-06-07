@@ -37,7 +37,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                 <li><h1>Техно от Антошки</h1></li>
             </div>
             <div class="menu-l"
-            <li><a>Главная</a></li>
+            <li><a href="<?= Url::to(['site/index']) ?>">Главная</a></li>
             <li><a>Товары</a></li>
             <li><a>Контакты</a></li>
             <li><?= Html::a('Логин',  ['/site/login']) ?></li>

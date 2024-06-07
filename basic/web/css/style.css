@@ -481,4 +481,10 @@ footer .adress img {
   height: 32px;
 }
 
+.product-view {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 /*# sourceMappingURL=style.css.map */

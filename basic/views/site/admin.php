@@ -10,6 +10,11 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="admin-panel">
     <h1><?= Html::encode($this->title) ?></h1>
 
+    <p>
+        <?= Html::a('Manage Products', ['admin/index'], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Manage Orders', ['site/manage-orders'], ['class' => 'btn btn-primary']) ?>
+    </p>
+
     <?php if ($action === 'admin'): ?>
         <p>
             <?= Html::a('Create Product', ['create'], ['class' => 'btn btn-success']) ?>
