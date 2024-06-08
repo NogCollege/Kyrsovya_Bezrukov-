@@ -275,9 +275,6 @@ class SiteController extends Controller
     }
 
 
-
-
-
     public function actionCreate()
     {
         $model = new Texno();
@@ -320,6 +317,20 @@ class SiteController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+    public function actionSearch()
+    {
+        $query = Yii::$app->request->get('query');
+        Yii::debug("Search query: $query", __METHOD__);
+
+        // Use case-insensitive search
+        $texnos = Texno::find()->where(['like', 'LOWER(nazvan)', strtolower($query)])->all();
+        Yii::debug("Products found: " . count($texnos), __METHOD__);
+
+        return $this->render('search', [
+            'texnos' => $texnos,
+            'query' => $query,
+        ]);
     }
 
 

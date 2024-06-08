@@ -9,7 +9,6 @@ $this->title = $texno->nazvan;
 ?>
 <h1 class="container"><?= Html::encode($this->title) ?></h1>
 <div class="product-view container">
-
     <div class="product-image">
         <img src="<?= $texno->img_url ?>" alt="<?= Html::encode($texno->nazvan) ?>" style="width:600px; border-radius: 20px;">
     </div>

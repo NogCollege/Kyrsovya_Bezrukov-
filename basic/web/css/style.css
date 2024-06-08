@@ -14,6 +14,7 @@ li {
 
 body {
   background-color: #eaeaea;
+  font-family: "PP Pangram Sans", sans-serif;
 }
 
 .container {
@@ -45,6 +46,11 @@ header {
   margin: 0 auto;
 }
 
+.corzina img {
+  width: 32px;
+  height: 32px;
+}
+
 .menu {
   padding-top: 5px;
   display: flex;
@@ -58,12 +64,28 @@ header {
   display: flex;
   color: white;
 }
+.menu-l a {
+  color: inherit;
+  text-decoration: none;
+  margin-left: 25px;
+}
+.menu-l .search-form {
+  margin-left: 25px;
+}
 .menu-l li {
   color: white;
   margin-left: 25px;
   font-weight: 500;
   font-size: 15px;
   font-family: "PP Pangram Sans", sans-serif;
+}
+.menu-l li img {
+  width: 32px;
+  height: 32px;
+}
+.menu-l li a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .knop {
@@ -145,6 +167,22 @@ header {
 
 .fleet {
   margin-top: 80px;
+}
+.fleet .sort-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 30px;
+}
+.fleet .sort-buttons .sort-btn {
+  display: flex;
+  background-color: #FFFFFF;
+  width: 200px;
+  color: #1F1F1F;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  margin-left: 30px;
 }
 .fleet .sect2-he {
   display: flex;
@@ -401,19 +439,33 @@ header {
 .katal li {
   background-color: white;
   border-radius: 20px;
+  height: 800px;
+  position: relative;
+  z-index: 1;
 }
 .katal li h4 {
   padding-left: 20px;
+  padding-top: 30px;
+}
+.katal li .text-s2 {
+  padding-top: 20px;
 }
 .katal li .cen {
   display: flex;
   flex-direction: row;
+  position: absolute;
+  z-index: 2;
+  bottom: 47px;
 }
-.katal li .cen .dobav {
-  margin-left: 120px;
+.katal li .cen .podrob {
+  margin-left: 30px;
+}
+.katal li .cen .zakaz {
+  margin-left: 30px;
 }
 .katal li .opisan {
   width: 500px;
+  padding-top: 40px;
 }
 .katal li p {
   padding-left: 20px;

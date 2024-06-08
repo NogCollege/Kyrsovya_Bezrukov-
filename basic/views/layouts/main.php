@@ -40,11 +40,17 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
             <li><a href="<?= Url::to(['site/index']) ?>">Главная</a></li>
             <li><a>Товары</a></li>
             <li><a>Контакты</a></li>
-            <li><?= Html::a('Логин',  ['/site/login']) ?></li>
-            <li><?= Html::a('Выйти', ['/site/logout'], ['data-method' => 'post']) ?></li>
+            <li><?= Html::a(Html::img('/../web/img/free-icon-account-login-14663683.png', ['alt' => 'your image']), ['/site/login'])?></li>
+            <li><?= Html::a(Html::img('/../web/img/free-icon-exit-11140878.png', ['alt' => 'your image']), ['/site/logout'], ['data-method' => 'post'])?></li>
             <?php if (!Yii::$app->user->isGuest): ?>
-                <a href="<?= Url::to(['site/profile']) ?>">Мой профиль</a>
+                <a  href="<?= Url::to(['site/profile']) ?>">Мой профиль</a>
             <?php endif; ?>
+            <div class="search-form">
+                <?= Html::beginForm(['site/search'], 'get') ?>
+                <?= Html::textInput('query', '', ['placeholder' => 'Поиск товаров...']) ?>
+                <?= Html::submitButton('Найти') ?>
+                <?= Html::endForm() ?>
+            </div>
 
 
     </div>
@@ -55,8 +61,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     <div class="tel">
         <li>8 800 555 35 35</li>
     </div>
-    <div>
-        <li><button class="button-head">Корзина</button></li>
+    <div class="corzina">
+        <li><?= Html::a(Html::img('/../web/img/free-icon-shopping-cart-3225209.png', ['alt' => 'your image']), ['/site/cart']) ?></li>
     </div>
     <div class="prof">
         <?php if (!Yii::$app->user->isGuest && Yii::$app->user->identity->hasRole('admin')): ?>

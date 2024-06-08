@@ -13,6 +13,7 @@ li{
 }
 body{
     background-color: #eaeaea;
+    font-family: 'PP Pangram Sans', sans-serif;
 }
 
 .container{
@@ -47,6 +48,12 @@ header{
     width: 1800px;
     margin: 0 auto;
 }
+.corzina{
+    img{
+        width: 32px;
+        height: 32px;
+    }
+}
 
 .menu{
     padding-top: 5px;
@@ -61,8 +68,23 @@ header{
     display: flex;
     color: white;
 
+    a{
+        color: inherit;
+        text-decoration: none;
+        margin-left: 25px;
+    }
+    .search-form{
+        margin-left: 25px;
+    }
     li{
-
+        img{
+            width: 32px;
+            height: 32px;
+        }
+        a{
+            color: inherit;
+            text-decoration: none;
+        }
         color: white;
         margin-left: 25px;
         font-weight: 500;
@@ -159,6 +181,24 @@ header{
 .fleet {
     margin-top: 80px;
 
+
+    .sort-buttons{
+        display: flex;
+        justify-content: space-evenly;
+        padding-bottom: 30px;
+        .sort-btn{
+            display: flex;
+            background-color: #FFFFFF;
+            width: 200px;
+
+            color: #1F1F1F;
+            border-radius: 10px;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            margin-left: 30px;
+        }
+    }
     .sect2-he {
         display: flex;
         flex-direction: row;
@@ -440,18 +480,32 @@ header{
     li{
         background-color: white;
         border-radius: 20px;
+        height: 800px;
+        position: relative;
+        z-index: 1;
         h4{
             padding-left: 20px;
+            padding-top: 30px;
+        }
+        .text-s2{
+            padding-top: 20px;
         }
         .cen{
             display: flex;
             flex-direction: row;
-            .dobav{
-                margin-left: 120px;
+            position: absolute;
+            z-index: 2;
+            bottom: 47px;
+            .podrob{
+                margin-left: 30px;
+            }
+            .zakaz{
+                margin-left: 30px;
             }
         }
         .opisan{
             width: 500px;
+            padding-top: 40px;
         }
         p{
             padding-left: 20px;

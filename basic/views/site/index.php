@@ -32,31 +32,53 @@ $this->title = 'Интернет магазин';
 <section class="fleet" id="tovar">
     <div class="sect2-he container">
         <h1>Техника Антошки</h1>
-        <button>Смотреть всё</button>
+        <button class="smtr button-cat" data-category="all">Смотреть всё</button>
     </div>
     <div class="sect2-car container">
         <ul class="car container">
             <li>
-                <button class= "white w5" >Сматфоны</button>
-
+                <button class= "button-cat white w5" data-category="Смартфоны">Смартфоны</button>
+                <div class="subcategories" data-category="Смартфоны">
+                    <label><input type="checkbox" value="IOS"> IOS</label>
+                    <label><input type="checkbox" value="Android"> Android</label>
+                </div>
             </li>
             <li>
-                <button class=" white w1 " >Телевизоры</button>
-
+                <button class=" button-cat white w1 " data-category="Телевизоры">Телевизоры</button>
+                <div class="subcategories" data-category="Телевизоры">
+                    <label><input type="checkbox" value="LED"> LED</label>
+                    <label><input type="checkbox" value="OLED"> OLED</label>
+                </div>
             </li>
             <li>
-                <button class=" white w4" > Техника для кухни</button>
-
+                <button class=" button-cat white w4" data-category="Холодильники"> Холодильники</button>
+                <div class="subcategories" data-category="Холодильники">
+                    <label><input type="checkbox" value="Двухкамерные холодильники"> Двухкамерные холодильники</label>
+                    <label><input type="checkbox" value="Однокамерные холодильники"> Однокамерные холодильники</label>
+                </div>
             </li>
             <li>
-                <button class=" white w2" >Техника для дома</button>
-
+                <button class=" button-cat white w2" data-category="Стиральные машины">Стиральные машины</button>
+                <div class="subcategories" data-category="Стиральные машины">
+                    <label><input type="checkbox" value="Вертикальная загрузка">Вертикальная загрузка</label>
+                    <label><input type="checkbox" value="Фронтальная загрузка"> Фронтальная загрузка</label>
+                </div>
             </li>
             <li>
-                <button class=" white w3" ">Аудиотехника</button>
-
+                <button class=" button-cat white w3" data-category="Ноутбуки"">Ноутбуки</button>
+                <div class="subcategories" data-category="Ноутбуки">
+                    <label><input type="checkbox" value="Обычные ноутбуки"> Обычные ноутбуки</label>
+                    <label><input type="checkbox" value="Геймерские ноутбуки"> Геймерские ноутбуки</label>
+                </div>
             </li>
         </ul>
+    </div>
+
+    <div class="sort-buttons container">
+        <button class="sort-btn" data-sort="price_asc">Сортировать по цене (по возрастанию)</button>
+        <button class="sort-btn" data-sort="price_desc">Сортировать по цене (по убыванию)</button>
+        <button class="sort-btn" data-sort="name_asc">Сортировать по названию (A-Z)</button>
+        <button class="sort-btn" data-sort="name_desc">Сортировать по названию (Z-A)</button>
     </div>
 
     <?php
@@ -70,9 +92,10 @@ $this->title = 'Интернет магазин';
 
     <div class="katalog container">
         <ul class="katal">
-            <?php foreach ($texnos as $texno): ?>
-                <li class="vis-biba">
-                    <div class="img-kat">
+            <?php foreach ($texnos as $index => $texno): ?>
+                <li class="vis-biba" data-category="<?= Html::encode($texno['categoria']) ?>" data-subcategories="<?= implode(',', array_map('trim', explode(',', $texno['podcateg']))) ?>" style="display: <?= $index < 6 ? 'block' : 'none' ?>">
+
+                <div class="img-kat">
                         <img style="border-radius: 20px; height: 350px;" class="fotografia" src="<?= $texno['img_url'] ?> ">
                     </div>
                     <h4><?= $texno['nazvan'] ?></h4>
@@ -89,18 +112,131 @@ $this->title = 'Интернет магазин';
                             <input type="hidden" name="id" value="<?= $texno['id'] ?>">
                             <input type="hidden" name="nazvan" value="<?= $texno['nazvan'] ?>">
                             <input type="hidden" name="cena" value="<?= $texno['cena'] ?>">
-                            <button type="submit">заказать</button>
-                            <a href="<?= Url::to(['site/view', 'id' => $texno['id']]) ?>" class="btn btn-info">Подробнее</a>
+                            <button class="zakaz btn btn-info" type="submit">Добавить</button>
                         </form>
-
+                        <a href="<?= Url::to(['site/view', 'id' => $texno['id']]) ?>" class=" podrob btn btn-info">Подробнее</a>
                     </div>
                 </li>
             <?php endforeach; ?>
         </ul>
+        <button id="show-more" class="btn btn-primary">Показать еще</button>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryButtons = document.querySelectorAll('.button-cat');
+            const subcategoryContainers = document.querySelectorAll('.subcategories');
+            const items = document.querySelectorAll('.vis-biba');
+            const showMoreButton = document.getElementById('show-more');
+            let visibleItems = 6;
+            let currentCategory = 'all';
+            let currentSubcategories = [];
+            let sortBy = 'none';
+
+            function filterItems(category, subcategories) {
+                let displayedCount = 0;
+                items.forEach(item => {
+                    const itemCategory = item.getAttribute('data-category');
+                    const itemSubcategories = item.getAttribute('data-subcategories').split(',');
+                    if ((category === 'all' || itemCategory === category) && checkSubcategories(itemSubcategories, subcategories) && checkSort(item)) {
+                        if (displayedCount < visibleItems) {
+                            item.style.display = 'block';
+                            displayedCount++;
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
+
+            function checkSubcategories(itemSubcategories, selectedSubcategories) {
+                return selectedSubcategories.every(subcategory => itemSubcategories.includes(subcategory));
+            }
+
+            function getSelectedSubcategories() {
+                const selectedSubcategories = [];
+                document.querySelectorAll('.subcategories input:checked').forEach(checkbox => {
+                    selectedSubcategories.push(checkbox.value);
+                });
+                return selectedSubcategories;
+            }
+
+            function checkSort(item) {
+                if (sortBy === 'price_asc') {
+                    return true;
+                } else if (sortBy === 'price_desc') {
+                    return true;
+                } else if (sortBy === 'name_asc') {
+                    return true;
+                } else if (sortBy === 'name_desc') {
+                    return true;
+                } else {
+                    return true;
+                }
+            }
+
+            function sortItems() {
+                const sortedItems = Array.from(items).sort((a, b) => {
+                    const aName = a.querySelector('h4').innerText;
+                    const bName = b.querySelector('h4').innerText;
+                    if (sortBy === 'price_asc') {
+                        return parseFloat(a.querySelector('.ce').innerText.split(' ')[1]) - parseFloat(b.querySelector('.ce').innerText.split(' ')[1]);
+                    } else if (sortBy === 'price_desc') {
+                        return parseFloat(b.querySelector('.ce').innerText.split(' ')[1]) - parseFloat(a.querySelector('.ce').innerText.split(' ')[1]);
+                    } else if (sortBy === 'name_asc') {
+                        return aName.localeCompare(bName);
+                    } else if (sortBy === 'name_desc') {
+                        return bName.localeCompare(aName);
+                    } else {
+                        return 0;
+                    }
+                });
+                items.forEach(item => item.parentNode.removeChild(item));
+                sortedItems.forEach(item => document.querySelector('.katal').appendChild(item));
+            }
+
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    currentCategory = button.getAttribute('data-category');
+                    currentSubcategories = getSelectedSubcategories();
+                    visibleItems = 6;
+                    filterItems(currentCategory, currentSubcategories);
+                    sortItems();
+                });
+            });
+
+            subcategoryContainers.forEach(container => {
+                container.addEventListener('change', () => {
+                    currentSubcategories = getSelectedSubcategories();
+                    filterItems(currentCategory, currentSubcategories);
+                    sortItems();
+                });
+            });
+
+            showMoreButton.addEventListener('click', () => {
+                visibleItems += 4;
+                filterItems(currentCategory, currentSubcategories);
+                sortItems();
+            });
+
+            // Sort buttons
+            document.querySelectorAll('.sort-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    sortBy = btn.getAttribute('data-sort');
+                    sortItems();
+                });
+            });
+
+            // Initial filter to show only the first 6 items
+            filterItems('all', []);
+        });
 
 
+    </script>
 </section>
+
+
 <section class="stock">
     <div class="stok_main container">
         <div class="stok_text">
