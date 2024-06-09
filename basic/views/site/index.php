@@ -37,35 +37,35 @@ $this->title = 'Интернет магазин';
     <div class="sect2-car container">
         <ul class="car container">
             <li>
-                <button class= "button-cat white w5" data-category="Смартфоны">Смартфоны</button>
+                <button class="button-cat white w5" data-category="Смартфоны">Смартфоны</button>
                 <div class="subcategories" data-category="Смартфоны">
                     <label><input type="checkbox" value="IOS"> IOS</label>
                     <label><input type="checkbox" value="Android"> Android</label>
                 </div>
             </li>
             <li>
-                <button class=" button-cat white w1 " data-category="Телевизоры">Телевизоры</button>
+                <button class="button-cat white w1" data-category="Телевизоры">Телевизоры</button>
                 <div class="subcategories" data-category="Телевизоры">
                     <label><input type="checkbox" value="LED"> LED</label>
                     <label><input type="checkbox" value="OLED"> OLED</label>
                 </div>
             </li>
             <li>
-                <button class=" button-cat white w4" data-category="Холодильники"> Холодильники</button>
+                <button class="button-cat white w4" data-category="Холодильники">Холодильники</button>
                 <div class="subcategories" data-category="Холодильники">
                     <label><input type="checkbox" value="Двухкамерные холодильники"> Двухкамерные холодильники</label>
                     <label><input type="checkbox" value="Однокамерные холодильники"> Однокамерные холодильники</label>
                 </div>
             </li>
             <li>
-                <button class=" button-cat white w2" data-category="Стиральные машины">Стиральные машины</button>
+                <button class="button-cat white w2" data-category="Стиральные машины">Стиральные машины</button>
                 <div class="subcategories" data-category="Стиральные машины">
                     <label><input type="checkbox" value="Вертикальная загрузка">Вертикальная загрузка</label>
                     <label><input type="checkbox" value="Фронтальная загрузка"> Фронтальная загрузка</label>
                 </div>
             </li>
             <li>
-                <button class=" button-cat white w3" data-category="Ноутбуки"">Ноутбуки</button>
+                <button class="button-cat white w3" data-category="Ноутбуки">Ноутбуки</button>
                 <div class="subcategories" data-category="Ноутбуки">
                     <label><input type="checkbox" value="Обычные ноутбуки"> Обычные ноутбуки</label>
                     <label><input type="checkbox" value="Геймерские ноутбуки"> Геймерские ноутбуки</label>
@@ -75,10 +75,10 @@ $this->title = 'Интернет магазин';
     </div>
 
     <div class="sort-buttons container">
-        <button class="sort-btn" data-sort="price_asc">Сортировать по цене (по возрастанию)</button>
-        <button class="sort-btn" data-sort="price_desc">Сортировать по цене (по убыванию)</button>
-        <button class="sort-btn" data-sort="name_asc">Сортировать по названию (A-Z)</button>
-        <button class="sort-btn" data-sort="name_desc">Сортировать по названию (Z-A)</button>
+        <button class="sort-btn gradient-sort-asc" data-sort="price_asc">Сортировать по цене (по возрастанию)</button>
+        <button class="sort-btn gradient-sort-desc" data-sort="price_desc">Сортировать по цене (по убыванию)</button>
+        <button class="sort-btn gradient-sort-asc" data-sort="name_asc">Сортировать по названию (A-Z)</button>
+        <button class="sort-btn gradient-sort-desc" data-sort="name_desc">Сортировать по названию (Z-A)</button>
     </div>
 
     <?php
@@ -95,7 +95,7 @@ $this->title = 'Интернет магазин';
             <?php foreach ($texnos as $index => $texno): ?>
                 <li class="vis-biba" data-category="<?= Html::encode($texno['categoria']) ?>" data-subcategories="<?= implode(',', array_map('trim', explode(',', $texno['podcateg']))) ?>" style="display: <?= $index < 6 ? 'block' : 'none' ?>">
 
-                <div class="img-kat">
+                    <div class="img-kat">
                         <img style="border-radius: 20px; height: 350px;" class="fotografia" src="<?= $texno['img_url'] ?> ">
                     </div>
                     <h4><?= $texno['nazvan'] ?></h4>
@@ -114,19 +114,16 @@ $this->title = 'Интернет магазин';
                             <input type="hidden" name="cena" value="<?= $texno['cena'] ?>">
                             <button class="zakaz btn btn-info" type="submit">Добавить</button>
                         </form>
-                        <a href="<?= Url::to(['site/view', 'id' => $texno['id']]) ?>" class=" podrob btn btn-info">Подробнее</a>
+                        <a href="<?= Url::to(['site/view', 'id' => $texno['id']]) ?>" class="podrob btn btn-info">Подробнее</a>
                     </div>
                 </li>
             <?php endforeach; ?>
         </ul>
         <button id="show-more" class="btn btn-primary">Показать еще</button>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const categoryButtons = document.querySelectorAll('.button-cat');
-            const subcategoryContainers = document.querySelectorAll('.subcategories');
-            const items = document.querySelectorAll('.vis-biba');
-            const showMoreButton = document.getElementById('show-more');
+        $(document).ready(function() {
             let visibleItems = 6;
             let currentCategory = 'all';
             let currentSubcategories = [];
@@ -134,18 +131,18 @@ $this->title = 'Интернет магазин';
 
             function filterItems(category, subcategories) {
                 let displayedCount = 0;
-                items.forEach(item => {
-                    const itemCategory = item.getAttribute('data-category');
-                    const itemSubcategories = item.getAttribute('data-subcategories').split(',');
-                    if ((category === 'all' || itemCategory === category) && checkSubcategories(itemSubcategories, subcategories) && checkSort(item)) {
+                $('.vis-biba').each(function() {
+                    const itemCategory = $(this).data('category');
+                    const itemSubcategories = $(this).data('subcategories').split(',');
+                    if ((category === 'all' || itemCategory === category) && checkSubcategories(itemSubcategories, subcategories) && checkSort($(this))) {
                         if (displayedCount < visibleItems) {
-                            item.style.display = 'block';
+                            $(this).show();
                             displayedCount++;
                         } else {
-                            item.style.display = 'none';
+                            $(this).hide();
                         }
                     } else {
-                        item.style.display = 'none';
+                        $(this).hide();
                     }
                 });
             }
@@ -156,34 +153,24 @@ $this->title = 'Интернет магазин';
 
             function getSelectedSubcategories() {
                 const selectedSubcategories = [];
-                document.querySelectorAll('.subcategories input:checked').forEach(checkbox => {
-                    selectedSubcategories.push(checkbox.value);
+                $('.subcategories input:checked').each(function() {
+                    selectedSubcategories.push($(this).val());
                 });
                 return selectedSubcategories;
             }
 
             function checkSort(item) {
-                if (sortBy === 'price_asc') {
-                    return true;
-                } else if (sortBy === 'price_desc') {
-                    return true;
-                } else if (sortBy === 'name_asc') {
-                    return true;
-                } else if (sortBy === 'name_desc') {
-                    return true;
-                } else {
-                    return true;
-                }
+                return true; // Sorting is handled separately
             }
 
             function sortItems() {
-                const sortedItems = Array.from(items).sort((a, b) => {
-                    const aName = a.querySelector('h4').innerText;
-                    const bName = b.querySelector('h4').innerText;
+                const sortedItems = $('.vis-biba').sort((a, b) => {
+                    const aName = $(a).find('h4').text();
+                    const bName = $(b).find('h4').text();
                     if (sortBy === 'price_asc') {
-                        return parseFloat(a.querySelector('.ce').innerText.split(' ')[1]) - parseFloat(b.querySelector('.ce').innerText.split(' ')[1]);
+                        return parseFloat($(a).find('.ce').text().split(' ')[1]) - parseFloat($(b).find('.ce').text().split(' ')[1]);
                     } else if (sortBy === 'price_desc') {
-                        return parseFloat(b.querySelector('.ce').innerText.split(' ')[1]) - parseFloat(a.querySelector('.ce').innerText.split(' ')[1]);
+                        return parseFloat($(b).find('.ce').text().split(' ')[1]) - parseFloat($(a).find('.ce').text().split(' ')[1]);
                     } else if (sortBy === 'name_asc') {
                         return aName.localeCompare(bName);
                     } else if (sortBy === 'name_desc') {
@@ -192,49 +179,76 @@ $this->title = 'Интернет магазин';
                         return 0;
                     }
                 });
-                items.forEach(item => item.parentNode.removeChild(item));
-                sortedItems.forEach(item => document.querySelector('.katal').appendChild(item));
+                $('.katal').empty().append(sortedItems);
             }
 
-            categoryButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    currentCategory = button.getAttribute('data-category');
+            function handleButtonClick(button, isCategoryButton) {
+                // Remove gradient from all buttons
+                $('.button-cat').removeClass('gradient-active');
+                $('.sort-btn').removeClass('gradient-active');
+                // Add gradient to the clicked button
+                $(button).addClass('gradient-active');
+
+                if (isCategoryButton) {
+                    currentCategory = $(button).data('category');
                     currentSubcategories = getSelectedSubcategories();
                     visibleItems = 6;
                     filterItems(currentCategory, currentSubcategories);
+                } else {
+                    sortBy = $(button).data('sort');
                     sortItems();
-                });
+                }
+            }
+
+            $('.button-cat').on('click', function() {
+                handleButtonClick(this, true);
             });
 
-            subcategoryContainers.forEach(container => {
-                container.addEventListener('change', () => {
-                    currentSubcategories = getSelectedSubcategories();
-                    filterItems(currentCategory, currentSubcategories);
-                    sortItems();
-                });
+            $('.subcategories').on('change', 'input', function() {
+                currentSubcategories = getSelectedSubcategories();
+                filterItems(currentCategory, currentSubcategories);
+                sortItems();
             });
 
-            showMoreButton.addEventListener('click', () => {
+            $('#show-more').on('click', function() {
                 visibleItems += 4;
                 filterItems(currentCategory, currentSubcategories);
                 sortItems();
             });
 
-            // Sort buttons
-            document.querySelectorAll('.sort-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    sortBy = btn.getAttribute('data-sort');
+            $('.sort-btn').removeClass('gradient-sort-asc gradient-sort-desc').css('color', '');
+
+            $('.sort-btn').on('click', function() {
+                const clickedButton = $(this);
+                const isAsc = clickedButton.data('sort') === 'price_asc' || clickedButton.data('sort') === 'name_asc';
+                const isDesc = clickedButton.data('sort') === 'price_desc' || clickedButton.data('sort') === 'name_desc';
+
+                // Toggle sorting classes based on button state
+                if (clickedButton.hasClass('gradient-sort-asc') || clickedButton.hasClass('gradient-sort-desc')) {
+                    clickedButton.removeClass('gradient-sort-asc gradient-sort-desc').css('color', '');
+                    sortBy = 'none'; // Reset sort state
+                } else {
+                    $('.sort-btn').removeClass('gradient-sort-asc gradient-sort-desc').css('color', ''); // Remove from all buttons
+                    $('.sort-btn').not(clickedButton).css('color', ''); // Reset color for other buttons
+                    if (isAsc) {
+                        clickedButton.addClass('gradient-sort-asc').css('color', 'white');
+                        sortBy = 'price_asc';
+                    } else if (isDesc) {
+                        clickedButton.addClass('gradient-sort-desc').css('color', 'white');
+                        sortBy = 'price_desc';
+                    }
                     sortItems();
-                });
+                }
             });
 
             // Initial filter to show only the first 6 items
             filterItems('all', []);
         });
-
-
     </script>
 </section>
+
+
+
 
 
 <section class="stock">

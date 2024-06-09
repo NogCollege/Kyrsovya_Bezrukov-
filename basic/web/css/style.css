@@ -184,6 +184,14 @@ header {
   font-size: 14px;
   margin-left: 30px;
 }
+.fleet .gradient-sort-asc {
+  background: linear-gradient(90deg, rgb(203, 23, 221) 0%, rgb(231, 15, 81) 37%, rgb(203, 23, 221) 100%);
+  color: white !important;
+}
+.fleet .gradient-sort-desc {
+  background: linear-gradient(90deg, rgb(203, 23, 221) 0%, rgb(231, 15, 81) 37%, rgb(203, 23, 221) 100%);
+  color: white !important;
+}
 .fleet .sect2-he {
   display: flex;
   flex-direction: row;
@@ -214,6 +222,10 @@ header {
 }
 .fleet .car img {
   margin-right: 15px;
+}
+.fleet .car .gradient-active {
+  background: linear-gradient(90deg, rgb(203, 23, 221) 0%, rgb(24, 212, 230) 37%, rgb(203, 23, 221) 100%);
+  color: white !important;
 }
 .fleet .car .white {
   display: flex;

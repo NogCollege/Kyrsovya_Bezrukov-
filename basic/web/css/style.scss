@@ -199,6 +199,15 @@ header{
             margin-left: 30px;
         }
     }
+    .gradient-sort-asc {
+        background: linear-gradient(90deg, rgba(203,23,221,1) 0%, rgba(231,15,81,1) 37%, rgba(203,23,221,1) 100%);
+        color: white !important;
+    }
+
+    .gradient-sort-desc {
+        background: linear-gradient(90deg, rgba(203,23,221,1) 0%, rgba(231,15,81,1) 37%, rgba(203,23,221,1) 100%);
+        color: white !important;
+    }
     .sect2-he {
         display: flex;
         flex-direction: row;
@@ -235,7 +244,10 @@ header{
             margin-right: 15px;
         }
 
-
+        .gradient-active {
+            background: linear-gradient(90deg, rgba(203,23,221,1) 0%, rgba(24,212,230,1) 37%, rgba(203,23,221,1) 100%);
+            color: white !important;
+        }
 
         .white{
             display: flex;
@@ -520,6 +532,8 @@ footer{
     background-color: black;
     color: white;
     padding-bottom: 60px;
+
+
     a{
         color: white;
     }

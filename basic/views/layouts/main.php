@@ -38,7 +38,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
             </div>
             <div class="menu-l"
             <li><a href="<?= Url::to(['site/index']) ?>">Главная</a></li>
-            <li><a>Товары</a></li>
+            <li><a href="#tovar">Товары</a></li>
             <li><a>Контакты</a></li>
             <li><?= Html::a(Html::img('/../web/img/free-icon-account-login-14663683.png', ['alt' => 'your image']), ['/site/login'])?></li>
             <li><?= Html::a(Html::img('/../web/img/free-icon-exit-11140878.png', ['alt' => 'your image']), ['/site/logout'], ['data-method' => 'post'])?></li>
