@@ -88,7 +88,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     <div class="fot container">
         <div class="fot_cont">
             <h1>Контакты</h1>
-            <a href="">Адрес магазинов</a>
+            <a href="https://yandex.ru/maps/10742/noginsk/?ll=38.444843%2C55.852600&pt=38.44484329223633%2C55.85260009765625&z=14">Адрес магазинов</a>
             <p>8 800 555 35 35</p>
             <button>Задать вопросы</button>
         </div>
